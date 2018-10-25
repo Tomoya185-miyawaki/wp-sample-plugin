@@ -36,5 +36,45 @@ class Sample_Plugin {
 			array( $this, 'list_page_render' ),
 			'dashicons-admin-plugins' //メニューの左のアイコン
 		);
+		add_submenu_page(
+			__FILE__,
+			'サンプル一覧',
+			'サンプル一覧',
+			'manage_options',
+			plugin_basename( __FILE__ ),
+			array( $this, 'list_page_render' ),
+			'dashicons-admin-plugins'
+		);
+		add_submenu_page(
+			__FILE__,
+			'サンプル登録',
+			'サンプル登録',
+			'manage_options',
+			plugin_dir_path( __FILE__ ) . 'includes/wp-sample-plugin-post.php',
+			array( $this, 'post_page_render' ),
+			'dashicons-admin-plugins'
+		);
+	}
+
+	/**
+	 * Rendaring List Page.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public function list_page_render () {
+		require_once( plugin_dir_path( __FILE__ ) . 'includes/wp-sample-plugin-list.php' );
+		new Sample_Plugin_List();
+	}
+
+	/**
+	 * Rendaring List Page.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public function post_page_render () {
+		require_once( plugin_dir_path( __FILE__ ) . 'includes/wp-sample-plugin-post.php' );
+		new Sample_Plugin_Post();
 	}
 }
