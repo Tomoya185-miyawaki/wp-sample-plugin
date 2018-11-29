@@ -14,6 +14,9 @@
 	 * @since   1.0.0
 	 */
 	public function __construct() {
+		$db = new Sample_Plugin_Admin_Db;
+		$db->insert_options( $_POST );
+
 		$this->page_render();
 	}
 
