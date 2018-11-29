@@ -59,4 +59,14 @@ class Sample_Plugin_Admin_Db {
 		}
 	}
 
+	/**
+	 * Insert Post.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 * @param   array $post
+	 */
+	public function insert_options( array $post ){
+		
+	}
 }
